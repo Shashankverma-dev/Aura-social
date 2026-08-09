@@ -211,7 +211,7 @@ export function ScrollStory() {
         x: isMobile ? 0 : -rightXOffset,
         y: storyYOffset,
         scale: storyScale,
-        rotationY: 0,
+        rotationY: isMobile ? 0 : -12,
         rotationX: 0,
         rotationZ: 0,
         ease: "power2.inOut",
@@ -443,12 +443,14 @@ export function ScrollStory() {
         {/* ================= SECTION 4 COPY: OUR STORY ================= */}
         <div
           id="story"
-          className={`absolute left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] space-y-2 sm:space-y-5 transition-all duration-700 ${
-            isMobile ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center" : "text-left space-y-3 sm:space-y-5"
+          className={`absolute max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] space-y-2 sm:space-y-5 transition-all duration-700 ${
+            isMobile
+              ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center left-4 right-4"
+              : "right-4 sm:right-6 md:right-8 lg:right-12 xl:right-14 2xl:right-20 text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 3
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-8 pointer-events-none"
+              ? "opacity-100 translate-x-0 translate-y-0 pointer-events-auto"
+              : "opacity-0 translate-x-12 -translate-y-2 pointer-events-none"
           }`}
         >
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-emerald-600/10 text-emerald-700 border border-emerald-500/30 text-[10px] sm:text-xs font-bold backdrop-blur-md">
