@@ -446,7 +446,7 @@ export function ScrollStory() {
           className={`absolute max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] space-y-2 sm:space-y-5 transition-all duration-700 ${
             isMobile
               ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center left-4 right-4"
-              : "right-4 sm:right-6 md:right-8 lg:right-12 xl:right-14 2xl:right-20 text-left space-y-3 sm:space-y-5"
+              : "right-6 sm:right-10 md:right-16 lg:right-28 xl:right-36 2xl:right-48 text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 3
               ? "opacity-100 translate-x-0 translate-y-0 pointer-events-auto"
