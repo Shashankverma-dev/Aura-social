@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { Smartphone, ScreenState } from "./Smartphone";
+import { HeroFeedScreen } from "./PhoneScreens/HeroFeedScreen";
 import { TemplateGalleryScreen } from "./PhoneScreens/TemplateGalleryScreen";
 import { OurStoryScreen } from "./PhoneScreens/OurStoryScreen";
 import { ContactMobileScreen } from "./PhoneScreens/ContactMobileScreen";
@@ -381,6 +382,16 @@ export function ScrollStory() {
               <TrendingUp className="w-4 h-4 text-blue-600" />
               <span>Explore Our Services</span>
             </button>
+
+            {isMobile && (
+              <button
+                onClick={() => setActiveFeatureModal("feed")}
+                className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm lg:text-base font-bold transition-all shadow-lg flex items-center gap-2 hover:scale-[1.02] cursor-pointer border-none"
+              >
+                <Play className="w-4 h-4" />
+                <span>See it in Action</span>
+              </button>
+            )}
           </div>
 
 
@@ -753,6 +764,7 @@ export function ScrollStory() {
 
             {/* Screen Content */}
             <div className="w-full h-full relative overflow-hidden rounded-[32px] sm:rounded-[36px]">
+              {activeFeatureModal === "feed" && <HeroFeedScreen />}
               {activeFeatureModal === "templates" && <TemplateGalleryScreen />}
               {activeFeatureModal === "story" && <OurStoryScreen />}
               {activeFeatureModal === "contact" && <ContactMobileScreen />}
