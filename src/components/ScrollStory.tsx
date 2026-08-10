@@ -418,7 +418,7 @@ export function ScrollStory() {
                 stat: "+340% Reach",
                 badge: "Viral Growth",
                 highlights: ["Viral Reel Production", "+340% Organic Impressions", "24/7 AI Community Moderation"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-blue-300 bg-blue-50/90 text-blue-700 hover:border-blue-500",
                 image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80",
               },
               {
@@ -429,7 +429,7 @@ export function ScrollStory() {
                 stat: "#1 Google",
                 badge: "AI Engines",
                 highlights: ["#1 Organic Keyword Rankings", "AI Search Engine Optimization", "Technical Speed Audits"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-purple-300 bg-purple-50/90 text-purple-700 hover:border-purple-500",
                 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
               },
               {
@@ -440,7 +440,7 @@ export function ScrollStory() {
                 stat: "60 FPS Motion",
                 badge: "Brand Kit",
                 highlights: ["3D Motion & Visual Graphics", "Complete Brand Guidelines", "High-Converting Ad Creatives"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-pink-300 bg-pink-50/90 text-pink-700 hover:border-pink-500",
                 image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80",
               },
               {
@@ -451,7 +451,7 @@ export function ScrollStory() {
                 stat: "Next.js 15",
                 badge: "Interactive",
                 highlights: ["60 FPS GSAP Motion Engine", "Sub-second Page Load", "Conversion-Optimized Layouts"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-emerald-300 bg-emerald-50/90 text-emerald-700 hover:border-emerald-500",
                 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80",
               },
               {
@@ -462,7 +462,7 @@ export function ScrollStory() {
                 stat: "High ROAS",
                 badge: "Storytelling",
                 highlights: ["Scroll-Stopping Hook Headlines", "High-ROAS Ad Copy Testing", "Automated Conversion Funnels"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-amber-300 bg-amber-50/90 text-amber-700 hover:border-amber-500",
                 image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
               },
               {
@@ -473,7 +473,7 @@ export function ScrollStory() {
                 stat: "4K Studio",
                 badge: "Reels & Ads",
                 highlights: ["4K Cinema Studio Shoots", "Short-Form Reel Production", "Product Highlight Macro Reels"],
-                color: "border-slate-800 bg-slate-950 text-slate-200 hover:border-slate-600",
+                color: "border-cyan-300 bg-cyan-50/90 text-cyan-700 hover:border-cyan-500",
                 image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80",
               },
             ].map((srv, idx) => (
@@ -486,12 +486,12 @@ export function ScrollStory() {
                 <div className="w-full h-14 rounded-md overflow-hidden bg-white/40 mb-1.5 opacity-90 group-hover:opacity-100 transition-opacity border border-current/10">
                   <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <div className="flex items-center justify-between text-slate-400">
+                <div className="flex items-center justify-between">
                   <div className="text-[9px] font-extrabold uppercase tracking-wider opacity-80">{srv.badge}</div>
                   <ArrowRight className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <div className="text-[11px] sm:text-xs font-black leading-tight text-white mt-1">{srv.title}</div>
-                <div className="text-[9px] sm:text-[10px] font-bold mt-1 text-slate-300 opacity-80">{srv.stat}</div>
+                <div className="text-[11px] sm:text-xs font-black leading-tight text-slate-900 mt-1">{srv.title}</div>
+                <div className="text-[9px] sm:text-[10px] font-bold mt-1 opacity-80">{srv.stat}</div>
               </button>
             ))}
           </div>
@@ -672,8 +672,8 @@ export function ScrollStory() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all">
           <div className="relative w-full max-w-sm bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 text-left flex flex-col animate-in zoom-in-95 duration-300">
             {/* Cover Image */}
-            <div className={`w-full h-40 relative shrink-0 ${activeServiceModal.color.split(' ')[1]}`}>
-              <img src={activeServiceModal.image} alt={activeServiceModal.title} className="w-full h-full object-cover mix-blend-overlay" />
+            <div className="w-full h-40 relative shrink-0 bg-slate-900">
+              <img src={activeServiceModal.image} alt={activeServiceModal.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               {/* Close Button overlayed */}
               <button
