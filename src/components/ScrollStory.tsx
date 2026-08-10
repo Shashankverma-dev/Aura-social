@@ -270,12 +270,14 @@ export function ScrollStory() {
         {/* ================= SECTION 1 COPY: HERO ================= */}
         <div
           id="hero"
-          className={`absolute left-4 sm:left-6 md:left-8 lg:left-10 xl:left-12 2xl:left-16 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl space-y-4 sm:space-y-6 lg:space-y-7 transition-all duration-700 ${
-            isMobile ? "top-16 sm:top-24 text-center inset-x-4 mx-auto flex flex-col items-center" : "text-left"
+          className={`absolute transition-all duration-700 ${
+            isMobile
+              ? "top-1/2 -translate-y-[52%] inset-x-4 text-center mx-auto flex flex-col items-center justify-center max-w-sm space-y-3.5"
+              : "left-4 sm:left-6 md:left-8 lg:left-10 xl:left-12 2xl:left-16 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl text-left space-y-4 sm:space-y-6 lg:space-y-7"
           } ${
             activeSectionIndex === 0
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-8 pointer-events-none"
+              ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+              : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
           }`}
         >
           {/* Dynamic Headline */}
@@ -372,10 +374,14 @@ export function ScrollStory() {
         {/* ================= SECTION 2 COPY: SHOWCASE ================= */}
         <div
           id="showcase"
-          className={`absolute inset-x-4 sm:inset-x-6 top-14 sm:top-28 md:top-32 lg:top-32 text-center space-y-1.5 sm:space-y-3 max-w-3xl lg:max-w-4xl mx-auto transition-all duration-700 z-10 flex flex-col items-center ${
+          className={`absolute transition-all duration-700 z-10 flex flex-col items-center ${
+            isMobile
+              ? "top-1/2 -translate-y-[52%] inset-x-3 text-center mx-auto max-w-sm space-y-2"
+              : "inset-x-4 sm:inset-x-6 top-14 sm:top-28 md:top-32 lg:top-32 text-center max-w-3xl lg:max-w-4xl mx-auto space-y-1.5 sm:space-y-3"
+          } ${
             activeSectionIndex === 1
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-8 pointer-events-none"
+              ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+              : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
           }`}
         >
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-950 drop-shadow-xs text-center leading-tight">
@@ -408,12 +414,14 @@ export function ScrollStory() {
         {/* ================= SECTION 3 COPY: TEMPLATES ================= */}
         <div
           id="templates"
-          className={`absolute left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-[560px] space-y-2 sm:space-y-5 transition-all duration-700 ${
-            isMobile ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center" : "text-left space-y-3 sm:space-y-5"
+          className={`absolute transition-all duration-700 ${
+            isMobile
+              ? "top-1/2 -translate-y-[52%] inset-x-4 text-center mx-auto flex flex-col items-center justify-center max-w-sm space-y-3"
+              : "left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-[560px] text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 2
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-8 pointer-events-none"
+              ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+              : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
           }`}
         >
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-purple-600/10 text-purple-700 border border-purple-500/30 text-[10px] sm:text-xs font-bold backdrop-blur-md">
@@ -461,10 +469,10 @@ export function ScrollStory() {
         {/* ================= SECTION 4 COPY: OUR STORY ================= */}
         <div
           id="story"
-          className={`absolute max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] space-y-2 sm:space-y-5 transition-all duration-700 ${
+          className={`absolute transition-all duration-700 ${
             isMobile
-              ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center left-4 right-4"
-              : "right-6 sm:right-10 md:right-16 lg:right-28 xl:right-36 2xl:right-48 text-left space-y-3 sm:space-y-5"
+              ? "top-1/2 -translate-y-[52%] inset-x-4 text-center mx-auto flex flex-col items-center justify-center max-w-sm space-y-3"
+              : "right-6 sm:right-10 md:right-16 lg:right-28 xl:right-36 2xl:right-48 text-left space-y-3 sm:space-y-5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px]"
           } ${
             activeSectionIndex === 3
               ? "opacity-100 translate-x-0 translate-y-0 pointer-events-auto"
@@ -498,12 +506,14 @@ export function ScrollStory() {
         {/* ================= SECTION 5 COPY: CONTACT ================= */}
         <div
           id="contact"
-          className={`absolute left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] space-y-2 sm:space-y-5 transition-all duration-700 ${
-            isMobile ? "top-16 text-center inset-x-4 mx-auto flex flex-col items-center" : "text-left space-y-3 sm:space-y-5"
+          className={`absolute transition-all duration-700 ${
+            isMobile
+              ? "top-1/2 -translate-y-[52%] inset-x-4 text-center mx-auto flex flex-col items-center justify-center max-w-sm space-y-3"
+              : "left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 4
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-8 pointer-events-none"
+              ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+              : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
           }`}
         >
           <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-blue-600/10 text-blue-700 border border-blue-500/30 text-[10px] sm:text-xs font-bold backdrop-blur-md">
