@@ -36,7 +36,7 @@ export function ScrollStory() {
     color: string;
     image: string;
   } | null>(null);
-  const [activeFeatureModal, setActiveFeatureModal] = useState<"templates" | "story" | "contact" | null>(null);
+  const [activeFeatureModal, setActiveFeatureModal] = useState<"feed" | "templates" | "story" | "contact" | null>(null);
 
   const scrollToSection = (sectionIndex: number) => {
     if (typeof window === "undefined" || !triggerRef.current) return;
