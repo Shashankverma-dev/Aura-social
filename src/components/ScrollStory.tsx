@@ -33,6 +33,7 @@ export function ScrollStory() {
     badge: string;
     highlights: string[];
     color: string;
+    image: string;
   } | null>(null);
   const [activeFeatureModal, setActiveFeatureModal] = useState<"templates" | "story" | "contact" | null>(null);
 
@@ -418,6 +419,7 @@ export function ScrollStory() {
                 badge: "Viral Growth",
                 highlights: ["Viral Reel Production", "+340% Organic Impressions", "24/7 AI Community Moderation"],
                 color: "border-blue-300 bg-blue-50/90 text-blue-700 hover:border-blue-500",
+                image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80",
               },
               {
                 id: "seo",
@@ -428,6 +430,7 @@ export function ScrollStory() {
                 badge: "AI Engines",
                 highlights: ["#1 Organic Keyword Rankings", "AI Search Engine Optimization", "Technical Speed Audits"],
                 color: "border-purple-300 bg-purple-50/90 text-purple-700 hover:border-purple-500",
+                image: "https://images.unsplash.com/photo-1432888117246-cd1373a8a59b?w=400&q=80",
               },
               {
                 id: "graphic",
@@ -438,6 +441,7 @@ export function ScrollStory() {
                 badge: "Brand Kit",
                 highlights: ["3D Motion & Visual Graphics", "Complete Brand Guidelines", "High-Converting Ad Creatives"],
                 color: "border-pink-300 bg-pink-50/90 text-pink-700 hover:border-pink-500",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80",
               },
               {
                 id: "webdev",
@@ -448,6 +452,7 @@ export function ScrollStory() {
                 badge: "Interactive",
                 highlights: ["60 FPS GSAP Motion Engine", "Sub-second Page Load", "Conversion-Optimized Layouts"],
                 color: "border-emerald-300 bg-emerald-50/90 text-emerald-700 hover:border-emerald-500",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80",
               },
               {
                 id: "copy",
@@ -458,6 +463,7 @@ export function ScrollStory() {
                 badge: "Storytelling",
                 highlights: ["Scroll-Stopping Hook Headlines", "High-ROAS Ad Copy Testing", "Automated Conversion Funnels"],
                 color: "border-amber-300 bg-amber-50/90 text-amber-700 hover:border-amber-500",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead27d8?w=400&q=80",
               },
               {
                 id: "photo",
@@ -468,20 +474,24 @@ export function ScrollStory() {
                 badge: "Reels & Ads",
                 highlights: ["4K Cinema Studio Shoots", "Short-Form Reel Production", "Product Highlight Macro Reels"],
                 color: "border-cyan-300 bg-cyan-50/90 text-cyan-700 hover:border-cyan-500",
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80",
               },
             ].map((srv, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setActiveServiceModal(srv)}
-                className={`p-2.5 rounded-xl border ${srv.color} shadow-xs backdrop-blur-md cursor-pointer active:scale-95 hover:scale-[1.02] transition-all text-left group`}
+                className={`p-2 rounded-xl border ${srv.color} shadow-xs backdrop-blur-md cursor-pointer active:scale-95 hover:scale-[1.02] transition-all text-left group overflow-hidden`}
               >
+                <div className="w-full h-14 rounded-md overflow-hidden bg-slate-200 mb-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                  <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="text-[9px] font-extrabold uppercase tracking-wider opacity-80">{srv.badge}</div>
                   <ArrowRight className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <div className="text-xs font-black leading-tight text-slate-900 mt-1">{srv.title}</div>
-                <div className="text-[10px] font-bold mt-1">{srv.stat}</div>
+                <div className="text-[11px] sm:text-xs font-black leading-tight text-slate-900 mt-1">{srv.title}</div>
+                <div className="text-[9px] sm:text-[10px] font-bold mt-1 opacity-80">{srv.stat}</div>
               </button>
             ))}
           </div>
@@ -660,63 +670,70 @@ export function ScrollStory() {
       {/* Interactive Mobile Service Details Pop-Up Modal */}
       {activeServiceModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all">
-          <div className="relative w-full max-w-sm bg-white rounded-3xl p-5 shadow-2xl border border-slate-200/90 text-left space-y-3.5">
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveServiceModal(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer border-none"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200/80">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-              <span>{activeServiceModal.badge}</span>
-            </div>
-
-            {/* Title & Subtitle */}
-            <div>
-              <h3 className="text-xl font-black text-slate-950 leading-tight">
-                {activeServiceModal.title}
-              </h3>
-              <p className="text-xs font-semibold text-slate-500 mt-0.5">
-                {activeServiceModal.subtitle}
-              </p>
-            </div>
-
-            {/* Description */}
-            <p className="text-xs text-slate-700 font-medium leading-relaxed">
-              {activeServiceModal.description}
-            </p>
-
-            {/* Highlights */}
-            <div className="space-y-1.5 pt-1">
-              <div className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-                Key Features & Metrics:
-              </div>
-              <ul className="space-y-1.5 text-xs font-semibold text-slate-800">
-                {activeServiceModal.highlights.map((hl, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>{hl}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-2">
+          <div className="relative w-full max-w-sm bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 text-left flex flex-col animate-in zoom-in-95 duration-300">
+            {/* Cover Image */}
+            <div className="w-full h-40 bg-slate-200 relative shrink-0">
+              <img src={activeServiceModal.image} alt={activeServiceModal.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              {/* Close Button overlayed */}
               <button
-                onClick={() => {
-                  setActiveServiceModal(null);
-                  scrollToSection(4);
-                }}
-                className="w-full py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg cursor-pointer border-none"
+                onClick={() => setActiveServiceModal(null)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md text-white/80 hover:bg-black/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer border-none z-50 ring-1 ring-white/20"
               >
-                <span>Get Started with {activeServiceModal.title}</span>
-                <ArrowRight className="w-4 h-4 text-blue-400" />
+                <X className="w-4 h-4" />
               </button>
+            </div>
+
+            <div className="p-5 space-y-3.5 bg-white relative">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200/80 -mt-9 relative z-10 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                <span>{activeServiceModal.badge}</span>
+              </div>
+
+              {/* Title & Subtitle */}
+              <div>
+                <h3 className="text-xl font-black text-slate-950 leading-tight">
+                  {activeServiceModal.title}
+                </h3>
+                <p className="text-xs font-semibold text-slate-500 mt-0.5">
+                  {activeServiceModal.subtitle}
+                </p>
+              </div>
+
+              {/* Description */}
+              <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                {activeServiceModal.description}
+              </p>
+
+              {/* Highlights */}
+              <div className="space-y-1.5 pt-1">
+                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                  Key Features & Metrics:
+                </div>
+                <ul className="space-y-1.5 text-xs font-semibold text-slate-800">
+                  {activeServiceModal.highlights.map((hl, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => {
+                    setActiveServiceModal(null);
+                    scrollToSection(4);
+                  }}
+                  className="w-full py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg cursor-pointer border-none"
+                >
+                  <span>Get Started with {activeServiceModal.title}</span>
+                  <ArrowRight className="w-4 h-4 text-blue-400" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
