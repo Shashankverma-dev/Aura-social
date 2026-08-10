@@ -430,7 +430,7 @@ export function ScrollStory() {
                 badge: "AI Engines",
                 highlights: ["#1 Organic Keyword Rankings", "AI Search Engine Optimization", "Technical Speed Audits"],
                 color: "border-purple-300 bg-purple-50/90 text-purple-700 hover:border-purple-500",
-                image: "https://images.unsplash.com/photo-1432888117246-cd1373a8a59b?w=400&q=80",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
               },
               {
                 id: "graphic",
@@ -463,7 +463,7 @@ export function ScrollStory() {
                 badge: "Storytelling",
                 highlights: ["Scroll-Stopping Hook Headlines", "High-ROAS Ad Copy Testing", "Automated Conversion Funnels"],
                 color: "border-amber-300 bg-amber-50/90 text-amber-700 hover:border-amber-500",
-                image: "https://images.unsplash.com/photo-1455390582262-044cdead27d8?w=400&q=80",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
               },
               {
                 id: "photo",
@@ -483,7 +483,7 @@ export function ScrollStory() {
                 onClick={() => setActiveServiceModal(srv)}
                 className={`p-2 rounded-xl border ${srv.color} shadow-xs backdrop-blur-md cursor-pointer active:scale-95 hover:scale-[1.02] transition-all text-left group overflow-hidden`}
               >
-                <div className="w-full h-14 rounded-md overflow-hidden bg-slate-200 mb-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <div className="w-full h-14 rounded-md overflow-hidden bg-white/40 mb-1.5 opacity-90 group-hover:opacity-100 transition-opacity border border-current/10">
                   <img src={srv.image} alt={srv.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="flex items-center justify-between">
@@ -672,8 +672,8 @@ export function ScrollStory() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all">
           <div className="relative w-full max-w-sm bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 text-left flex flex-col animate-in zoom-in-95 duration-300">
             {/* Cover Image */}
-            <div className="w-full h-40 bg-slate-200 relative shrink-0">
-              <img src={activeServiceModal.image} alt={activeServiceModal.title} className="w-full h-full object-cover" />
+            <div className={`w-full h-40 relative shrink-0 ${activeServiceModal.color.split(' ')[1]}`}>
+              <img src={activeServiceModal.image} alt={activeServiceModal.title} className="w-full h-full object-cover mix-blend-overlay" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               {/* Close Button overlayed */}
               <button
