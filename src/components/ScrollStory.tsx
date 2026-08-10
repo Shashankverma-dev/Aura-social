@@ -372,7 +372,7 @@ export function ScrollStory() {
         {/* ================= SECTION 2 COPY: SHOWCASE ================= */}
         <div
           id="showcase"
-          className={`absolute inset-x-4 sm:inset-x-6 top-16 sm:top-32 md:top-32 lg:top-32 text-center space-y-1.5 sm:space-y-3 max-w-3xl lg:max-w-4xl mx-auto transition-all duration-700 z-10 flex flex-col items-center ${
+          className={`absolute inset-x-4 sm:inset-x-6 top-14 sm:top-28 md:top-32 lg:top-32 text-center space-y-1.5 sm:space-y-3 max-w-3xl lg:max-w-4xl mx-auto transition-all duration-700 z-10 flex flex-col items-center ${
             activeSectionIndex === 1
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-8 pointer-events-none"
@@ -385,6 +385,24 @@ export function ScrollStory() {
           <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-xs sm:max-w-lg mx-auto leading-relaxed text-center font-medium">
             Explore our full suite of high-converting social, search, creative, and digital growth solutions.
           </p>
+
+          {/* Mobile Only: Service Showcase Grid (when 3D phone is hidden on mobile) */}
+          <div className="md:hidden grid grid-cols-2 gap-2 pt-2.5 w-full max-w-sm px-1 text-left">
+            {[
+              { title: "Social Media", stat: "+340% Reach", badge: "Viral Growth", color: "border-blue-300 bg-blue-50/80 text-blue-700" },
+              { title: "SEO Ranking", stat: "#1 Google", badge: "AI Engines", color: "border-purple-300 bg-purple-50/80 text-purple-700" },
+              { title: "3D Graphics", stat: "60 FPS Motion", badge: "Brand Kit", color: "border-pink-300 bg-pink-50/80 text-pink-700" },
+              { title: "Web Dev", stat: "Next.js 15", badge: "Interactive", color: "border-emerald-300 bg-emerald-50/80 text-emerald-700" },
+              { title: "Content Copy", stat: "High ROAS", badge: "Storytelling", color: "border-amber-300 bg-amber-50/80 text-amber-700" },
+              { title: "Photo & Video", stat: "4K Studio", badge: "Reels & Ads", color: "border-cyan-300 bg-cyan-50/80 text-cyan-700" },
+            ].map((srv, idx) => (
+              <div key={idx} className={`p-2 rounded-xl border ${srv.color} shadow-xs backdrop-blur-md`}>
+                <div className="text-[9px] font-extrabold uppercase tracking-wider opacity-80">{srv.badge}</div>
+                <div className="text-xs font-black leading-tight text-slate-900 mt-0.5">{srv.title}</div>
+                <div className="text-[10px] font-bold mt-1">{srv.stat}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ================= SECTION 3 COPY: TEMPLATES ================= */}
@@ -516,7 +534,7 @@ export function ScrollStory() {
         </div>
 
         {/* ================= CENTER STAGE SINGLE SMARTPHONE (EXPLICIT GSAP TRANSFORM FOR BI-DIRECTIONAL SCRUB) ================= */}
-        <div className="w-full h-full flex items-center justify-center relative pointer-events-none">
+        <div className="hidden md:flex w-full h-full items-center justify-center relative pointer-events-none">
           <div
             ref={phoneWrapperRef}
             className="perspective-1000 gpu-accelerated pointer-events-auto"
