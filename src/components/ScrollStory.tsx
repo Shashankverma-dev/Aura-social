@@ -5,6 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { Smartphone, ScreenState } from "./Smartphone";
+import { TemplateGalleryScreen } from "./PhoneScreens/TemplateGalleryScreen";
+import { OurStoryScreen } from "./PhoneScreens/OurStoryScreen";
+import { ContactMobileScreen } from "./PhoneScreens/ContactMobileScreen";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { Navbar } from "./Navbar";
 import { Instagram, Youtube, Twitter, Linkedin, Facebook, ArrowRight, Play, Sparkles, CheckCircle2, Star, ShieldCheck, Zap, Layers, TrendingUp, Mail, X } from "lucide-react";
@@ -31,6 +34,7 @@ export function ScrollStory() {
     highlights: string[];
     color: string;
   } | null>(null);
+  const [activeFeatureModal, setActiveFeatureModal] = useState<"templates" | "story" | "contact" | null>(null);
 
   const scrollToSection = (sectionIndex: number) => {
     if (typeof window === "undefined" || !triggerRef.current) return;
@@ -282,7 +286,7 @@ export function ScrollStory() {
           id="hero"
           className={`absolute transition-all duration-700 ${
             isMobile
-              ? "top-16 sm:top-20 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3 sm:space-y-4"
+              ? "top-24 sm:top-28 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3 sm:space-y-4"
               : "left-4 sm:left-6 md:left-8 lg:left-10 xl:left-12 2xl:left-16 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl text-left space-y-4 sm:space-y-6 lg:space-y-7"
           } ${
             activeSectionIndex === 0
@@ -386,7 +390,7 @@ export function ScrollStory() {
           id="showcase"
           className={`absolute transition-all duration-700 z-10 flex flex-col items-center ${
             isMobile
-              ? "top-16 sm:top-20 inset-x-3 text-center mx-auto max-w-sm space-y-2"
+              ? "top-24 sm:top-28 inset-x-3 text-center mx-auto max-w-sm space-y-2"
               : "inset-x-4 sm:inset-x-6 top-14 sm:top-28 md:top-32 lg:top-32 text-center max-w-3xl lg:max-w-4xl mx-auto space-y-1.5 sm:space-y-3"
           } ${
             activeSectionIndex === 1
@@ -488,7 +492,7 @@ export function ScrollStory() {
           id="templates"
           className={`absolute transition-all duration-700 ${
             isMobile
-              ? "top-16 sm:top-20 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
+              ? "top-24 sm:top-28 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
               : "left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-[560px] text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 2
@@ -529,10 +533,10 @@ export function ScrollStory() {
 
           <div className="pt-0.5 sm:pt-1">
             <button
-              onClick={() => scrollToSection(2)}
+              onClick={() => isMobile ? setActiveFeatureModal("templates") : scrollToSection(2)}
               className="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm lg:text-base font-extrabold shadow-xl shadow-purple-500/25 flex items-center gap-2 transition-all hover:scale-[1.02] cursor-pointer border-none"
             >
-              <span>Explore All Templates</span>
+              <span>{isMobile ? "View Template Gallery" : "Explore All Templates"}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -543,7 +547,7 @@ export function ScrollStory() {
           id="story"
           className={`absolute transition-all duration-700 ${
             isMobile
-              ? "top-16 sm:top-20 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
+              ? "top-24 sm:top-28 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
               : "right-6 sm:right-10 md:right-16 lg:right-28 xl:right-36 2xl:right-48 text-left space-y-3 sm:space-y-5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px]"
           } ${
             activeSectionIndex === 3
@@ -566,7 +570,7 @@ export function ScrollStory() {
 
           <div className="pt-0.5 sm:pt-1">
             <button
-              onClick={() => scrollToSection(3)}
+              onClick={() => isMobile ? setActiveFeatureModal("story") : scrollToSection(3)}
               className="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm lg:text-base font-extrabold flex items-center gap-2 shadow-xl shadow-slate-950/20 hover:scale-[1.02] cursor-pointer transition-all border-none"
             >
               <span>Read Full Manifesto</span>
@@ -580,7 +584,7 @@ export function ScrollStory() {
           id="contact"
           className={`absolute transition-all duration-700 ${
             isMobile
-              ? "top-16 sm:top-20 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
+              ? "top-24 sm:top-28 inset-x-4 text-center mx-auto flex flex-col items-center max-w-sm space-y-3"
               : "left-4 sm:left-6 md:left-8 lg:left-12 xl:left-14 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[520px] text-left space-y-3 sm:space-y-5"
           } ${
             activeSectionIndex === 4
@@ -606,7 +610,7 @@ export function ScrollStory() {
 
           <div className="pt-0.5 sm:pt-1 flex flex-wrap items-center gap-3">
             <button
-              onClick={() => scrollToSection(4)}
+              onClick={() => isMobile ? setActiveFeatureModal("contact") : scrollToSection(4)}
               className="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm lg:text-base font-extrabold flex items-center gap-2 shadow-xl shadow-slate-950/20 hover:scale-[1.02] cursor-pointer transition-all border-none"
             >
               <span>Contact Growth Team</span>
@@ -713,6 +717,28 @@ export function ScrollStory() {
                 <span>Get Started with {activeServiceModal.title}</span>
                 <ArrowRight className="w-4 h-4 text-blue-400" />
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Interactive Mobile Feature Details Pop-Up Modal */}
+      {activeFeatureModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all">
+          <div className="relative w-full max-w-sm h-[80vh] bg-slate-950 rounded-[32px] sm:rounded-[36px] shadow-2xl overflow-hidden border border-slate-800/80 ring-4 ring-slate-900/50 flex flex-col animate-in zoom-in-95 duration-300">
+            {/* Close Button overlayed */}
+            <button
+              onClick={() => setActiveFeatureModal(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md text-white/80 hover:bg-black/60 hover:text-white flex items-center justify-center transition-colors cursor-pointer border-none z-50 ring-1 ring-white/10"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Screen Content */}
+            <div className="w-full h-full relative overflow-hidden rounded-[32px] sm:rounded-[36px]">
+              {activeFeatureModal === "templates" && <TemplateGalleryScreen />}
+              {activeFeatureModal === "story" && <OurStoryScreen />}
+              {activeFeatureModal === "contact" && <ContactMobileScreen />}
             </div>
           </div>
         </div>
