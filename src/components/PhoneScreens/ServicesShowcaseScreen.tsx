@@ -172,7 +172,7 @@ function PortraitServicesView() {
       {/* App Header */}
       <div className="px-4 pt-1 pb-2 flex items-center justify-between border-b border-slate-100 shrink-0 bg-white/90">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow">A</div>
+          <img src="/logo.png" alt="Aura Logo" className="h-5 w-auto object-contain" />
           <div>
             <h3 className="text-[11px] font-black text-slate-900 leading-none">Aura Services</h3>
             <p className="text-[9px] text-slate-400 font-medium">Tap any service to explore</p>

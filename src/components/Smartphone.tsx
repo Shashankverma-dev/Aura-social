@@ -15,12 +15,12 @@ interface SmartphoneProps {
 
 export function Smartphone({ screenState }: SmartphoneProps) {
   return (
-    <div className="relative w-[300px] h-[600px] sm:w-[310px] sm:h-[620px] md:w-[320px] md:h-[640px] gpu-accelerated select-none transition-all duration-500">
-      {/* Outer Metallic Titanium Bezel Chassis */}
-      <div className="absolute inset-0 rounded-[42px] sm:rounded-[48px] md:rounded-[50px] bg-gradient-to-tr from-slate-300 via-slate-100 to-slate-400 p-[2.5px] sm:p-[3px] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.35)] ring-1 ring-slate-400/40">
+    <div className="relative w-[305px] h-[610px] sm:w-[315px] sm:h-[630px] md:w-[325px] md:h-[650px] gpu-accelerated select-none transition-all duration-500">
+      {/* Outer Metallic Titanium Bezel Chassis (Concentric 50px radius) */}
+      <div className="absolute inset-0 rounded-[50px] bg-gradient-to-tr from-slate-400 via-slate-100 to-slate-400 p-[2.5px] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)] ring-1 ring-slate-400/50">
         
-        {/* Inner Dark Chassis Cushion */}
-        <div className="w-full h-full rounded-[39px] sm:rounded-[45px] md:rounded-[47px] bg-slate-950 p-[7px] sm:p-[9px] relative overflow-hidden border border-slate-800">
+        {/* Inner Ultra-Slim Uniform Bezel (Concentric 47.5px radius, 3.5px padding) */}
+        <div className="w-full h-full rounded-[47.5px] bg-slate-950 p-[3.5px] sm:p-[4px] relative overflow-hidden border border-slate-900">
           
           {/* Side Buttons Visual Realism */}
           {/* Volume Buttons Left */}
@@ -29,19 +29,19 @@ export function Smartphone({ screenState }: SmartphoneProps) {
           {/* Power Button Right */}
           <div className="absolute -right-[5px] top-28 sm:top-32 w-[3px] h-12 sm:h-14 rounded-r-md bg-slate-400 shadow-sm" />
 
-          {/* Screen Container */}
-          <div className="w-full h-full rounded-[32px] sm:rounded-[36px] md:rounded-[38px] bg-slate-950 overflow-hidden relative border border-white/10 shadow-inner">
+          {/* Screen Container (Concentric 44px radius, perfectly flush with bezel corners) */}
+          <div className="w-full h-full rounded-[44px] bg-white overflow-hidden relative shadow-inner">
             
             {/* Dynamic Island / Notch Pill */}
-            <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-4.5 sm:h-5 rounded-full bg-black z-40 border border-white/10 flex items-center justify-between px-2 shadow-md">
-              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-slate-900 ring-1 ring-white/10 flex items-center justify-center">
-                <div className="w-1 h-1 rounded-full bg-blue-900/60" />
+            <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 w-22 sm:w-24 h-4.5 sm:h-5 rounded-full bg-black z-40 border border-white/15 flex items-center justify-between px-2 shadow-md">
+              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-slate-900 ring-1 ring-white/15 flex items-center justify-center">
+                <div className="w-1 h-1 rounded-full bg-blue-900/70" />
               </div>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/90 animate-pulse" />
             </div>
 
             {/* Screen Content Layers with Smooth Crossfade */}
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative overflow-hidden rounded-[44px]">
               {/* Hero Feed */}
               <div
                 className={`absolute inset-0 transition-opacity duration-700 ${
@@ -89,7 +89,7 @@ export function Smartphone({ screenState }: SmartphoneProps) {
             </div>
 
             {/* Hardware Glass Reflection Overlay */}
-            <div className="absolute inset-0 phone-glare pointer-events-none z-30 opacity-60" />
+            <div className="absolute inset-0 phone-glare pointer-events-none z-30 opacity-50 rounded-[44px]" />
           </div>
         </div>
       </div>

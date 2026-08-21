@@ -37,9 +37,7 @@ export function ContactMobileScreen() {
       {/* Header Bar */}
       <div className="px-4 pt-1.5 pb-2 flex items-center justify-between border-b border-slate-100 shrink-0 bg-white/90 backdrop-blur-md">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-xs">
-            A
-          </div>
+          <img src="/logo.png" alt="Aura Logo" className="h-5 w-auto object-contain" />
           <div>
             <h3 className="text-xs font-black text-slate-900 tracking-tight leading-none">
               Get In <span className="text-blue-600">Touch</span>

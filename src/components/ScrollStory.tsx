@@ -752,12 +752,13 @@ export function ScrollStory() {
 
       {/* Interactive Mobile Feature Details Pop-Up Modal */}
       {activeFeatureModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all">
-          <div className="relative w-full max-w-sm h-[80vh] bg-slate-950 rounded-[32px] sm:rounded-[36px] shadow-2xl overflow-hidden border border-slate-800/80 ring-4 ring-slate-900/50 flex flex-col animate-in zoom-in-95 duration-300">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-md transition-all">
+          <div className="relative w-full max-w-sm h-[82vh] bg-slate-50 rounded-[36px] sm:rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 ring-8 ring-slate-900/5 flex flex-col animate-in zoom-in-95 duration-300">
             {/* Close Button overlayed */}
             <button
               onClick={() => setActiveFeatureModal(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md text-white/80 hover:bg-black/60 hover:text-white flex items-center justify-center transition-colors cursor-pointer border-none z-50 ring-1 ring-white/10"
+              className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-900 text-white hover:bg-slate-800 flex items-center justify-center transition-colors cursor-pointer border-none z-50 shadow-md"
+              aria-label="Close Preview"
             >
               <X className="w-4 h-4" />
             </button>
